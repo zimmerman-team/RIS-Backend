@@ -1,0 +1,39 @@
+{% extends "basic_header.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="inner-container">
+        <div class="row">
+            <div class="upper-message" style="background-color: {{ bcolor }}"><a href="{{ url }}">Laat Boodschap in Browser zien</a></div>
+            <div class="title-bar" style="background-color: {{ bcolor }}"><span>Gemeente {{ municipality }}</span> Raadsinformatie Portaal</div>
+            <div class="message-body">
+                <div class="upper-message-body">
+                    <label>Beste {{ username }},</label>
+                    <p>
+                        U krijgt hierbij de laatste notificaties van de Gemeente {{ municipality }} Raads 
+                        Informatie portaal op basis van uw ingestelde voorkeuren.
+                    </p>
+                </div>
+                <div class="notification-title">
+                    <img src="https://png.icons8.com/material/50/ffffff/appointment-reminders.png" style="background: {{ bcolor }}">
+                    <!-- <i class="material-icons">notifications_active</i> -->
+                    <label>Nieuwe Notificaties</label>
+                </div>
+                <br/>
+                {% block notification_item %}{% endblock %}
+            </div>
+            <div class="footer" style="background-color: {{ bcolor }}">
+                <label>Raads Informatie Portaal Gemeente {{ municipality }}</label>
+                <div>
+                    <label>RIS {{ municipality }}: </label> <a href="{{ portal_url }}">{{ portal_url }}</a>
+                    <!-- <label>Over RIS: </label> <a href="{{ portal_url }}">Het Raads informatie Portaal concept</a> <span>|</span>
+                    <label>Contact: </label> <a href="{{ portal_url }}">RIS Infodesk</a> <span>|</span>
+                    <a href="{{ portal_url }}">Hoe werkt RIS</a> <span>|</span> <a href="{{ portal_url }}">Uitschrijven van de RIS Gemeente X Zoekmachine</a> -->
+                </div>
+            </div>
+            <a style="display: none" href="https://icons8.com">Icon pack by Icons8</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

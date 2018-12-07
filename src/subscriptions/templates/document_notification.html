@@ -1,0 +1,21 @@
+{% extends "basic_mail.html" %}
+
+{% block notification_item %}
+<div class="notification-item">
+    <div class="header">
+        <img src="https://png.icons8.com/material/50/ffffff/document.png" style="background-color: {{ bcolor }}">
+        <label><b>NIEUWE {{ type_upper }}</b>: {{ item.last_modified|date:"Y-m-d H:m" }}</label>
+    </div>
+    <div class="title-row">
+        <label class="s10" style="color: {{ bcolor }}">{{ item.name }}</label>
+        <a class="s2" href="{{ url }}" style="color: {{ bcolor }}" target="_blank">Meer...</a>
+    </div>
+    <div class="content-row">
+        <label><b>Document type:</b> {{ type }}</label>
+        <label><b>Document status:</b> --</label>
+        <label><b>Document aangemaakt</b> {{ item.date|date:"d-m-Y" }}</label>
+        <label><b>Datum bewerkt</b> {{ item.last_modified|date:"d-m-Y" }}</label>
+        <label><b>Auteur</b> --</label>
+    </div>
+</div>
+{% endblock %}

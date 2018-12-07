@@ -1,0 +1,17 @@
+src/ris/local_settings.py
+test_app/ids.txt
+supervisord.pid
+files*
+static_served*
+ris-env*
+env*
+.env*
+.vscode/*
+*.pyc
+__pycache__/
+.data
+public
+*.DS_Store
+src/media/user_files/*
+src/*/migrations/
+media

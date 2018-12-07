@@ -1,0 +1,299 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RIS{% block title %}{% endblock %}</title>
+    <meta name="description" content="RIS"/>
+    <meta name="keywords" content="RIS"/>
+    <meta name="author" content="Zimmerman & Zimmerman"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        body {
+            background: #eee;
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        .container {
+            background: #eee;
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        .inner-container {
+            width: 600px;
+            display: table;
+            margin: 0 auto;
+        }
+
+        .upper-message {
+            height: 20px;
+            text-align: center;
+            background-image: linear-gradient(0deg,rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .upper-message > a {
+            cursor: pointer;
+            font-size: 10px;
+            color: rgba(238, 238, 238, 0.74);
+        }
+
+        .title-bar {
+            height: 60px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 300;
+            padding: 14px 0 0 35px;
+        }
+
+        .title-bar > span {
+            font-weight: 500;            
+        }
+
+        .message-body {
+            padding-bottom: 50px;
+            background-color: #ffffff;
+        }
+
+        .upper-message-body {
+            padding: 35px;
+        }
+
+        .upper-message-body > label {
+            font-size: 20px;
+            color: #525252;
+        }
+
+        .upper-message-body > p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            margin-bottom: 21px;
+            line-height: 1.14;
+            letter-spacing: normal;
+            text-align: left;
+            color: #444444;
+        }
+
+        .upper-message-body > .activate-btn {
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-weight: normal;
+            appearance: button-bevel;
+            -moz-appearance: button-bevel;
+            -webkit-appearance: button-bevel;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        }
+
+        .notification-title {
+            text-align: center;
+            border-bottom: 1px solid #707070;
+            padding: 29px 0;
+            margin: 0 35px;
+        }
+
+        .notification-title > label {
+            font-size: 20px;
+            color: #525252;
+            font-weight: 300;
+            margin-left: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        .notification-title > img {
+            width: 36px;
+            height: 36px;
+            color: #fff;
+            padding: 0.5em;
+            border-radius: 60px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .notification-item {
+            margin: 20px 35px;    
+        }
+
+        .notification-item > .header {
+            padding-left: 5px;
+            margin-bottom: 20px;
+        }
+
+        .notification-item > .header > img {
+            width: 26px;
+            height: 26px;
+            padding: 0.35em;
+            border-radius: 60px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .notification-item > .header > label {
+            font-size: 16px;
+            font-weight: 300;
+            color: #4d4d4d;
+            padding-top: 7px;
+            padding-left: 20px;
+            vertical-align: middle;
+        }
+
+        .notification-item > .title-row {
+            padding: 10px 20px;
+            background: #efefef;
+        }
+
+        .notification-item > .title-row > label {
+            font-size: 19px;
+        }
+
+        .notification-item > .title-row > a {
+            float: right;
+            cursor: pointer;
+            font-size: 14px;
+            padding-top: 5px;
+        }
+        .notification-item > .title-row > a:hover {
+            text-decoration: underline;
+        }
+
+        .notification-item > .title-row {
+            margin-bottom: 2px;
+        }
+
+        .notification-item > .content-row {
+            padding: 10px 20px;
+            background: #efefef;
+        }
+
+        .notification-item > .content-row > label {
+            display: block;
+            font-size: 14px;
+            color: #4d4d4d;
+            margin-bottom: 10px;
+        }
+
+        .notification-item > .content-row > .event-row {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .notification-item > .content-row > .event-row > img {
+            width: 26px;
+            height: 26px;
+            padding: 0.35em;
+            margin-right: 10px;
+            background: #fff;
+            border-radius: 60px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .notification-item > .content-row > .event-row > label {
+            font-size: 14px;
+            color: #4d4d4d;
+            vertical-align: middle;
+        }
+
+        .notification-item > .content-row > .event-right-row {
+            display: block;
+            margin: 10px 0;
+            height: 20px;
+        }
+
+        .notification-item > .content-row > .event-right-row > div {
+            float: right;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-top: -10px;
+            background: #fff;
+            width: fit-content;
+            border-radius: 20px;
+        }
+
+        .notification-item > .content-row > .event-right-row > div > img {
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            vertical-align: sub;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .notification-item > .content-row > .event-right-row > div > label {
+            /* height: 36px; */
+            font-size: 16px;
+            cursor: pointer;
+            color: #4d4d4d;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            /* width: 600px; */
+            color: #fff;
+            padding: 10px 35px;
+        }
+
+        .footer > label {
+            color: #fff;
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer > div > label {
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .footer > div > a {
+            color: #fff;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 300;
+            display: inline-block;
+            text-decoration: underline;
+        }
+
+        .footer > div > span {
+            margin: 0 5px;
+            font-size: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "basic_mail.html" %}
+
+{% block notification_item %}
+<div class="notification-item">
+    <div class="header">
+        <img src="https://png.icons8.com/material/50/ffffff/calendar-12.png" style="background-color: {{ bcolor }}">
+        <label><b>NIEUWE AGENDA ITEM</b>: {{ item.last_modified|date:"Y-m-d H:m" }}</label>
+    </div>
+    <div class="title-row">
+        <label class="s10" style="color: {{ bcolor }}">{{ item.name }}</label>
+        <a class="s2" style="color: {{ bcolor }}" href="{{ url }}" target="_blank">Meer...</a>
+    </div>
+    <div class="content-row">
+        <div class="event-row">
+            <img src="https://png.icons8.com/material/50/444444/calendar.png">
+            <label>{{ item.date|date:"d M Y" }}</label>
+        </div>
+        <div class="event-row">
+            <img src="https://png.icons8.com/material/50/444444/alarm-clock.png">
+            <label>{{ item.date|date:"H:m" }} uur</label>
+        </div>
+        <div class="event-row">
+            <img src="https://png.icons8.com/material/50/444444/map.png">
+            <label>Stadhuis {{ municipality }}</label>
+        </div>
+        <!-- <div class="event-right-row" style="cursor: pointer;">
+            <div>
+                <label style="cursor: pointer;">Zet in agenda</label>
+                <img style="cursor: pointer;" src="https://png.icons8.com/material/50/444444/calendar.png">
+            </div>
+        </div> -->
+        <br/>
+    </div>
+</div>
+{% endblock %}

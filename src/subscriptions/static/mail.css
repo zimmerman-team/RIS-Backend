@@ -1,0 +1,223 @@
+body {
+    background: #eee;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 600px;
+}
+
+.upper-message {
+    width: 600px;
+    height: 20px;
+    color: #eee;
+    font-size: 10px;
+    padding-top: 2px;
+    text-align: center;
+    background-color: #315e88;
+}
+
+.title-bar {
+    width: 600px;
+    height: 60px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 14px 0 0 35px;
+    background-color: #0c74d5;
+}
+
+.message-body {
+    width: 600px;
+    padding-bottom: 50px;
+    background-color: #ffffff;
+}
+
+.upper-message-body {
+    padding: 35px;
+}
+
+.upper-message-body > label {
+    font-size: 20px;
+    color: #525252;
+}
+
+.upper-message-body > p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: left;
+    color: #444444;
+}
+
+.notification-title {
+    text-align: center;
+    border-bottom: 1px solid #707070;
+    padding: 29px 0;
+    margin: 0 35px;
+}
+
+.notification-title > label {
+    font-size: 20px;
+    color: #525252;
+    font-weight: 300;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+.notification-title > i {
+    color: #fff;
+    padding: 0.5em;
+    border-radius: 60px;
+    display: inline-block;
+    background: #0c74d5;
+}
+
+.notification-item {
+    margin: 20px 35px;    
+}
+
+.notification-item > .header > .col > i {
+    color: #fff;
+    padding: 0.3em;
+    border-radius: 60px;
+    display: inline-block;
+    background: #0c74d5;
+}
+
+.notification-item > .header > label {
+    font-size: 16px;
+    font-weight: 300;
+    color: #4d4d4d;
+    padding-top: 7px;
+    padding-left: 20px;
+}
+
+.notification-item > .title-row {
+    padding: 10px 20px;
+    background: #efefef;
+}
+
+.notification-item > .title-row > label {
+    font-size: 19px;
+    color: #0c74d5;
+}
+
+.notification-item > .title-row > a {
+    float: right;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0c74d5;
+    padding-top: 5px;
+}
+.notification-item > .title-row > a:hover {
+    text-decoration: underline;
+}
+
+.notification-item > .title-row {
+    margin-bottom: 2px;
+}
+
+.notification-item > .content-row {
+    padding: 10px 20px;
+    background: #efefef;
+}
+
+.notification-item > .content-row > label {
+    display: block;
+    font-size: 14px;
+    color: #4d4d4d;
+    margin-bottom: 10px;
+}
+
+.notification-item > .content-row > .event-row {
+    display: block;
+    margin: 10px 0;
+}
+
+.notification-item > .content-row > .event-row > i {
+    color: #444;
+    padding: 0.3em;
+    margin-right: 10px;
+    background: #fff;
+    border-radius: 60px;
+    display: inline-block;
+}
+
+.notification-item > .content-row > .event-row > label {
+    font-size: 14px;
+    color: #4d4d4d;
+    vertical-align: super;
+}
+
+.notification-item > .content-row > .event-right-row {
+    display: block;
+    margin: 10px 0;
+    height: 20px;
+}
+
+.notification-item > .content-row > .event-right-row > div {
+    float: right;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: -10px;
+    background: #fff;
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.notification-item > .content-row > .event-right-row > div > i {
+    color: #444;
+    cursor: pointer;
+    vertical-align: sub;
+    display: inline-block;
+}
+
+.notification-item > .content-row > .event-right-row > div > label {
+    font-size: 16px;
+    cursor: pointer;
+    color: #4d4d4d;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+}
+
+.footer {
+    width: 600px;
+    color: #fff;
+    padding: 10px 35px;
+    background-color: #4486c4;
+}
+
+.footer > label {
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer > div > label {
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.footer > div > a {
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 300;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.footer > div > span {
+    margin: 0 5px;
+    font-size: 10px;
+}
