@@ -397,11 +397,12 @@ class NotubizDataScraper():
             except ObjectDoesNotExist:
                 continue
 
-            _speaker_index = SpeakerIndex.objects.create(
-                speaker=speaker,
-                start_time=start_time,
-                agenda_item=agenda_item
-            )
+            if not SpeakerIndex.objects.filter(speaker=speaker, start_time=start_time, agenda_item=agenda_item).exists():
+                _speaker_index = SpeakerIndex.objects.create(
+                    speaker=speaker,
+                    start_time=start_time,
+                    agenda_item=agenda_item
+                )
 
 
     def parse_agenda_docs(self, agenda_item_xml, _agenda_item, _event):

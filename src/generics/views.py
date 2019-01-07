@@ -510,8 +510,8 @@ def remove_public_dossier_content(request):
                 item_type = item['type']
                 try:
                     if item_type == 'public_dossier':
-                        ci = CombinedItem.objects.get(item_id=dossier_id, item_type=item_type)
-                        PublicDossierContent.objects.get(dossier=item_id, item=ci, item_type=item_type).delete()
+                        ci = CombinedItem.objects.get(id=item_id, item_type=item_type)
+                        PublicDossierContent.objects.get(dossier=dossier_id, item=ci, item_type=item_type).delete()
                         if not PublicDossierContent.objects.filter(item=ci, item_type=item_type).exists() and not dossier_item.parent_dossier:
                             dossier_item.depth = 0
                     else:
