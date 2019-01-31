@@ -11,7 +11,7 @@ UK | The local council information Portal (RIS) is open-source software that can
 ## About the project
 --------
 * Authors: <a href="https://www.zimmermanzimmerman.nl/" target="_blank">Zimmerman & Zimmerman</a>
-* Municipalities: <a href="https://gemeenteraad.almere.nl/" target="_blank">Municipality of Almere</a> and <a href="https://www.utrecht.nl/bestuur-en-organisatie/gemeenteraad/" target="_blank">Municipality of Utrecht</a> 
+* Municipalities: <a href="https://gemeenteraad.almere.nl/" target="_blank">Municipality of Almere</a>
 * License: AGPLv3 (see included <a href="https://github.com/zimmerman-zimmerman/ris-backend/blob/master/License.md" target="_blank">LICENSE</a> file for full license)
 * Github Repo: <a href="https://github.com/zimmerman-zimmerman/ris-backend/" target="_blank">github.com/zimmerman-zimmerman/ris-backend/</a>
 * Bug Tracker: <a href="https://github.com/zimmerman-zimmerman/ris-backend/issues" target="_blank">github.com/zimmerman-zimmerman/ris-backend/issues</a>
@@ -60,7 +60,7 @@ Adjust the following variables:
     RIS_DB_NAME=<database name>
     RIS_DB_PASSWORD=<password>
     RIS_DB_USER=<user>
-    RIS_MUNICIPALITY=<Almere | Utrecht | Rotterdam>
+    RIS_MUNICIPALITY=<Almere>
 
 ### Create DB model migrations & apply them
 --------
