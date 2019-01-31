@@ -1,5 +1,5 @@
 [![License: AGPLv3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/zimmerman-zimmerman/ris-backend/blob/master/License.md)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/554b69f97f264191b3a8ce513befbfe8)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zimmerman-zimmerman/ris-backend&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/be81450219f44b509fabcf7918af9b5c)](https://www.codacy.com/app/zimmerman-zimmerman/RIS-Backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zimmerman-zimmerman/RIS-Backend&amp;utm_campaign=Badge_Grade)
 
 # Raads Informatie Portaal (RIS) - Back-end
 --------
