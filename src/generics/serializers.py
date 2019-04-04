@@ -1101,6 +1101,7 @@ class PolicyDocumentSerializer(serializers.ModelSerializer):
     document = DocumentSerializer()
     combined_id = serializers.SerializerMethodField()
     notes = serializers.SerializerMethodField()
+    published = serializers.SerializerMethodField()
 
     @staticmethod
     def get_notes(doc):

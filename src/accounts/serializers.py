@@ -322,6 +322,9 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
         """
         Checks if user input isn't empty and then update the user information
         """
+
+        old_type = instance.type
+
         if len(validated_data.get('email', instance.email)) > 0:
             instance.email = validated_data.get('email', instance.email)
         if len(validated_data.get('mobile_number', instance.mobile_number)) > 0:
@@ -343,6 +346,21 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
                 if not current_prof_pic.url.endswith('profile_pictures/default_pic.png'):
                     default_storage.delete(current_prof_pic)
         instance.save()
+        if validated_data.get('type') != old_type:
+            context = {
+                'username': instance.first_name,
+                'updated_type': getUserTypeNiceName(instance.type),
+                'municipality': settings.RIS_MUNICIPALITY,
+                'portal_url': settings.FRONTEND_URL,
+                'bcolor': settings.COLOR[settings.RIS_MUNICIPALITY]
+            }
+
+            html_content = render_to_response('user_type_changed_email.html', context)
+
+            email_subject = "RI Studio %s: Notificatie" % (settings.RIS_MUNICIPALITY)
+
+            mail = MailGun()
+            mail.send_mail(instance.email, email_subject, False, html_content)
         return instance
 
 
@@ -486,3 +504,12 @@ class GetUserItemCountsSerializer(serializers.Serializer):
     dossiers_count = serializers.IntegerField()
     queries_count = serializers.IntegerField()
     favorites_count = serializers.IntegerField()
+
+
+def getUserTypeNiceName(user_type):
+    return {
+        "regular": "Reguliere gebruiker",
+        "admin": "Super administrator",
+        "auteur": "Autuer",
+        "raadslid": "Raadslid",
+    } [user_type]
