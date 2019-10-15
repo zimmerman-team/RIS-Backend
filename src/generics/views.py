@@ -72,6 +72,7 @@ import after_response
 from django.shortcuts import render
 from django.conf import settings
 
+import django_filters.rest_framework
 
 def index(request):
     context = {
@@ -88,7 +89,7 @@ class LargeResultsSetPagination(pagination.PageNumberPagination):
 
 class CombinedList(generics.ListAPIView):
     serializer_class = CombinedSerializer
-    filter_backends = (filters.DjangoFilterBackend, filters.OrderingFilter,)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend, filters.OrderingFilter,)
     filter_fields = ('name', 'classification', 'item_type')
     search_fields = ('name', 'classification', 'date',)
     ordering_fields = ('name', 'date', 'last_modified')
@@ -302,7 +303,7 @@ def edit_event(request):
 class EventList(generics.ListAPIView):
     queryset = Event.objects.all()
     serializer_class = EventListSerializer
-    filter_backends = (filters.DjangoFilterBackend, filters.OrderingFilter,)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend, filters.OrderingFilter,)
     filter_fields = ('name', 'classification',)
     search_fields = ('name', 'description', 'classification', 'start_time',)
     ordering_fields = ('name', 'start_time', 'last_modified')
@@ -735,7 +736,7 @@ def check_if_time_and_room_allocated(request):
 class DocumentList(generics.ListCreateAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
-    filter_backends = (filters.DjangoFilterBackend, filters.OrderingFilter)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend, filters.OrderingFilter)
     search_fields = ('text')
     ordering_fields = ('text', 'date', 'last_modified')
     filter_class = DocDateFilter
@@ -1386,7 +1387,7 @@ def scan_uploaded_docs(file_names, doc_ids, actual_docs_ids, types):
 
 class EventAgendaItemList(generics.ListCreateAPIView):
     queryset = EventAgendaItem.objects.all()
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     search_fields = ('id', 'notes', 'description')
     filter_fields = ('classification', 'id')
     ordering_fields = ('id')
@@ -1978,7 +1979,7 @@ class DocNotes(generics.ListAPIView):
 
 
 class MyNotes(generics.ListAPIView):
-    filter_backends = (filters.DjangoFilterBackend, filters.OrderingFilter,)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend, filters.OrderingFilter,)
     ordering_fields = ('title', 'created_at', 'last_modified')
     serializer_class = NoteListSerializer
     pagination_class = LargeResultsSetPagination
