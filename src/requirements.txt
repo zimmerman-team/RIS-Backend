@@ -3,7 +3,7 @@ django-nested-admin==2.2.6
 requests==2.20.0
 Django==1.11.23
 django-cors-headers==1.2.2
-django-debug-toolbar==1.6
+django-debug-toolbar==1.11.1
 django-filter==1.0.2
 djangorestframework==3.9.1
 factory-boy==2.8.1
